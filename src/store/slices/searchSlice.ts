@@ -1,33 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-interface State {
-   name: string;
-   content: any;
+interface SearchItem {
+   id: number;
 }
 
-const initialState = {
-   active: '',
-   content: ''
+interface State {
+   isLoading: boolean;
+   loadError: string;
+   list: SearchItem[];
+}
+
+const initialState: State = {
+   isLoading: false,
+   loadError: '',
+   list: []
 };
 
 export const searchSlice = createSlice({
    name: 'search',
    initialState,
    reducers: {
-      setActiveModal(state, action: PayloadAction<string | State>) {
-         if (!action.payload) state.active = state.content = '';
-         if (typeof action.payload === 'string') {
-            state.active = action.payload;
-            state.content = '';
-         }
-         if (typeof action.payload === 'object' && !Array.isArray(action.payload)) {
-            state.active = action.payload.name || '';
-            state.content = action.payload.content || '';
-         }
+      updateSearchList(state, action: PayloadAction<string | State>) {
+         // state.list = action.payload;
       }
    }
 });
 
-export const { setActiveModal } = searchSlice.actions;
+export const { updateSearchList } = searchSlice.actions;
 export default searchSlice.reducer;
