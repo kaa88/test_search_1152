@@ -16,7 +16,7 @@ const SearchResult = function ({ className = '', ...props }: ComponentProps<'div
    const dispatch = useAppDispatch();
    useEffect(() => {
       dispatch(updateSearchList(''));
-   }, []);
+   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
    const { isLoading, loadError, list, fragment } = useAppSelector((state) => state.search);
 
@@ -37,7 +37,8 @@ const SearchResult = function ({ className = '', ...props }: ComponentProps<'div
             key={number}
             active={number === activePage}
             data-value={number}
-            onClick={handlePaginationClick}>
+            onClick={handlePaginationClick}
+         >
             {number}
          </Pagination.Item>
       );

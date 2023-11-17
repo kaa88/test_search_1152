@@ -2,3 +2,4 @@
 /.vscode
 /.husky
 node_modules
+/build
