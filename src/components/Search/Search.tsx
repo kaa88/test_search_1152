@@ -1,14 +1,13 @@
 import { ComponentProps } from 'react';
 import classes from './Search.module.scss';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResult from '../SearchResult/SearchResult';
 
-interface SearchProps extends ComponentProps<'div'> {
-   a?: string;
-}
-
-const Search = function ({ className = '', children, ...props }: SearchProps) {
+const Search = function ({ className = '', ...props }: ComponentProps<'div'>) {
    return (
       <div className={`${className} ${classes.default}`} {...props}>
-         {children}
+         <SearchBar className={classes.searchBar} />
+         <SearchResult className={classes.searchResult} />
       </div>
    );
 };

@@ -3,7 +3,7 @@ import searchSlice from './slices/searchSlice';
 
 export const store = configureStore({
    reducer: {
-      seacrh: searchSlice
+      search: searchSlice
    }
 });
 
