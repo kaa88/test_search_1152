@@ -37,7 +37,8 @@ const SearchResult = function ({ className = '', ...props }: ComponentProps<'div
             key={number}
             active={number === activePage}
             data-value={number}
-            onClick={handlePaginationClick}>
+            onClick={handlePaginationClick}
+         >
             {number}
          </Pagination.Item>
       );
