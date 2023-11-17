@@ -2,6 +2,7 @@
    "name": "test_search_1152",
    "version": "0.1.0",
    "private": true,
+   "homepage": "https://kaa88.github.io/test_search_1152",
    "dependencies": {
       "@reduxjs/toolkit": "^1.9.7",
       "@testing-library/jest-dom": "^5.17.0",
@@ -15,6 +16,7 @@
       "@types/react-redux": "^7.1.30",
       "axios": "^1.6.2",
       "bootstrap": "^5.3.2",
+      "gh-pages": "^6.0.0",
       "react": "^18.2.0",
       "react-bootstrap": "^2.9.1",
       "react-dom": "^18.2.0",
@@ -26,6 +28,8 @@
    "scripts": {
       "lint": "eslint .",
       "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build",
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
