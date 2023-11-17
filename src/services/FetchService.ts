@@ -10,9 +10,19 @@ const settings = {
 
 const api = Axios.create(settings);
 
+export interface GetParams {
+   searchFragment?: string;
+   limit?: number;
+   page?: number;
+}
+
 const FetchService = {
-   async getList(searchStr: string) {
-      const query = searchStr ? `?q=${searchStr}` : '';
+   async getList(params: GetParams) {
+      const queryItems = [];
+      if (params.searchFragment) queryItems.push('q=' + params.searchFragment);
+      if (params.limit) queryItems.push('_limit=' + params.limit);
+      if (params.page) queryItems.push('_page=' + params.page);
+      const query = queryItems.length ? `?${queryItems.join('&')}` : '';
       return await api.get<IPost[]>(`/posts${query}`);
    }
 };
