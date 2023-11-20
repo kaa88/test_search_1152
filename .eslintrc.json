@@ -22,7 +22,7 @@
    "plugins": ["@typescript-eslint", "react", "prettier"],
    "rules": {
       "react/react-in-jsx-scope": "off",
-      "prettier/prettier": 2
+      "prettier/prettier": ["error", { "endOfLine": "auto" }]
    },
    "settings": {
       "react": {
